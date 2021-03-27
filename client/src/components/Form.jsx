@@ -50,7 +50,7 @@ export default function Form(props){
         <>
             { props.auth && <Redirect to="/home" />}
             <div className="FORM">
-                <form onSubmit={()=>onSubmit}>
+                <form onSubmit={onSubmit}>
                     <h1 className="h3 mb-3 font-weight-normal">{props.type}</h1>
                     <Username />
                     <Password />
