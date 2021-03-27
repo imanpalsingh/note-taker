@@ -14,7 +14,7 @@ export default function Home(){
   
 
     /*Using local storage for basic authentication*/
-    if(localStorage.getItem("auth")==="false" || localStorage.getItem("auth")===null){
+    if(localStorage.getItem("Auth")==="false" || localStorage.getItem("Auth")===null){
 
         return <Redirect to="/login" />
     }
