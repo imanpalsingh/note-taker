@@ -1,3 +1,7 @@
+/*
+    This components handles the sharing of the notes
+*/
+
 import {Modal,Button} from "react-bootstrap";
 import React, {useState} from "react";
 import axios from "axios";
@@ -19,6 +23,10 @@ export default function Example(props) {
             else if(event.target.shareType[1].checked){
                 type="read"
             }
+
+            else{
+              alert("Please select sharing type")
+            }
             axios.post("share",{
                 username: event.target.username.value,
                 noteId : props.id,
@@ -27,14 +35,18 @@ export default function Example(props) {
                 
             })
             .then(result=>{
-    
+
+              if(result.data.error){
+                alert(result.data.error);
+              }
+
             })
             handleClose();
            
     }
     return (
       <>
-        <Button variant="primary" onClick={handleShow}>
+        <Button variant="primary" className="Share-note" onClick={handleShow}>
           Share
         </Button>
   
@@ -44,7 +56,7 @@ export default function Example(props) {
           </Modal.Header>
           <form onSubmit={handleShare}>
           <div className="form-group " style={{margin:"0.4em"}}>
-                    <label id="username-share" htmlFor="recipient-name" className="col-form-label">username</label>
+                    <label id="username-share" htmlFor="recipient-name" className="col-form-label" required>username</label>
                     <input type="text" name="username" className="form-control" id="recipient-name" />
                 </div>
         <div className="form-group" style={{margin:"0.4em"}}>

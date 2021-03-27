@@ -1,3 +1,7 @@
+/*
+    This components handles the updation of the notes
+*/
+
 import {Modal,Button} from "react-bootstrap";
 import React, {useState} from "react";
 import axios from "axios";
@@ -26,7 +30,7 @@ export default function Example(props) {
     }
     return (
       <>
-        <Button variant="primary" onClick={handleShow}>
+        <Button variant="primary" className="Update-note" onClick={handleShow}>
           Update
         </Button>
   

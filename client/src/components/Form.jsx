@@ -13,8 +13,10 @@ import "../styles/Form.css";
 
 export default function Form(props){
 
+    
     function onSubmit(event){
 
+        
         /*
 
         A generic call to auth route is done.
@@ -33,6 +35,7 @@ export default function Form(props){
                 props.setAuth(false)
                 localStorage.setItem("Auth", "false")
                 localStorage.setItem("id","-1")
+                alert(result.data.error);
             }
 
             else{
@@ -49,13 +52,14 @@ export default function Form(props){
 
         <>
             { props.auth && <Redirect to="/home" />}
-            <div className="FORM">
-                <form onSubmit={onSubmit}>
-                    <h1 className="h3 mb-3 font-weight-normal">{props.type}</h1>
+            <div className="form-controller">
+                <form className="form"onSubmit={onSubmit}>
+                    <h1 className="h3 mb-3 font-weight-normal">{props.type==="login"?"Log In":"Sign Up"}</h1>
                     <Username />
                     <Password />
-                    <button className="btn btn-lg btn-primary btn-block" type="submit">{props.type}</button>
-                    <Link to={(props.type==="login")?"/signup":"/login"}><button className="btn btn-lg btn-primary btn-block" type="submit">{(props.type==="login")?"Sign Up":"Login In"}</button>
+                    <button className="btn btn-lg btn-primary" type="submit">{props.type}</button>
+                    <Link to={(props.type==="login")?"/signup":"/login"}><br /><br />
+                        <span>{(props.type==="login")?"Sign Up":"Login In"}</span>
                     </Link>
                 </form>
             </div>

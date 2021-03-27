@@ -1,3 +1,7 @@
+/*
+    This file is responsible for showing notes of all types
+*/
+
 
 import React, {useState, useEffect} from "react";
 import axios from "axios";
@@ -32,31 +36,31 @@ export default function ViewNote(props){
     })
 
    return(
-        <div class="Note">
-            <h1>{props.heading}:</h1>
-            <ol>
+        <div className="Note">
+            <h1 id={props.heading}>{props.heading}:</h1>
             {notes.map((note,index)=>{
                 return (
-                    <span style={{display:"block"}}  key={index}><li>{note.note}
+                    <span className="note-content" style={{display:"block"}}  key={index}>
+                        
+                        <span className="note-text"> {note.note} </span><br />
                         &nbsp;
-
+                        <span clasname="bottom-button-group">
                         { 
                         (props.type==="owner") &&  
                             <>
                                 <Share id={note.id}/>
-                                <button  id={note.id} onClick={Delete} type="button" className="btn btn-primary">Delete</button>
+                                <button  id={note.id} onClick={Delete} type="button" className="btn btn-primary delete-note">Delete</button>
                             </>
                         }
                         {(props.type==="owner" || props.type==="colab") && (<Update id={note.id} />)}
-                        
-                    </li>  
+                        </span>
+ 
                     </span>
                     )     
                 }
              
             )
         }
-        </ol>
     </div>
    );
   }

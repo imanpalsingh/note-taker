@@ -17,7 +17,7 @@ export function Username(){
     return(
         <>
             <label htmlFor="inputEmail"   className="sr-only">username</label>
-            <input type="text" name="username" placeholder="Username" className="form-control" id="recipient-name" />
+            <input type="text" name="username" placeholder="Username" className="form-control username-text" id="recipient-name" />
         </>
     )
 }
@@ -27,7 +27,7 @@ export function Password(){
     return (
         <>
             <label htmlFor="inputPassword" className="sr-only">Password</label>
-            <input name="password" type="password" id="inputPassword" className="form-control" placeholder="Password" required />
+            <input name="password" type="password" id="inputPassword" className="form-control password-text" placeholder="Password" required />
         </>
     )
 }

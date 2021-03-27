@@ -1,6 +1,24 @@
-.FORM{
+.form-controller{
     display: flex;
     justify-content: center;
     align-content: center;
-    text-align: center;
+    text-align: center; 
+    margin: 1.1em;
+}
+
+.form-controller .form{
+
+    position: relative;
+    top: 15vh;
+    border: 1px solid black;
+    padding: 3em 4em;
+
+}
+
+.toast{
+    position: aboslute;
+}
+
+.username-text, .password-text{
+    margin: 1.5em 0em;
 }
