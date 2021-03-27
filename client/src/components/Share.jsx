@@ -9,6 +9,8 @@ export default function Example(props) {
     const handleShow = () => setShow(true);
 
     const handleShare = (event)=>{
+
+      event.preventDefault();
         let type = null;
             if(event.target.shareType[0].checked){
                 type="colab"
@@ -27,7 +29,8 @@ export default function Example(props) {
             .then(result=>{
     
             })
-            event.preventDefault();
+            handleClose();
+           
     }
     return (
       <>
@@ -39,7 +42,7 @@ export default function Example(props) {
           <Modal.Header closeButton>
             <Modal.Title>Share Note</Modal.Title>
           </Modal.Header>
-          <form onSubmit={()=>handleShare}>
+          <form onSubmit={handleShare}>
           <div className="form-group " style={{margin:"0.4em"}}>
                     <label id="username-share" htmlFor="recipient-name" className="col-form-label">username</label>
                     <input type="text" name="username" className="form-control" id="recipient-name" />
