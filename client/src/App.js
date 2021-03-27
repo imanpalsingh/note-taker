@@ -10,10 +10,10 @@ import {
 } from "react-router-dom";
 
 
-function App() {
+function App(props) {
 
   const [isAuthed, authenticate] = useState(false);
-
+  
   return (
     <Router>
       <Switch>

@@ -30,7 +30,7 @@ export default function ViewNote(props){
 
         fetchNotes()
         .then(result=>{
-
+            
             updateNotes(result.data)
         })
     })

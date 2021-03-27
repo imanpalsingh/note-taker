@@ -13,10 +13,9 @@ import "../styles/Form.css";
 
 export default function Form(props){
 
-    
+  
     function onSubmit(event){
 
-        
         /*
 
         A generic call to auth route is done.
@@ -33,8 +32,7 @@ export default function Form(props){
 
             if(result.data.error){
                 props.setAuth(false)
-                localStorage.setItem("Auth", "false")
-                localStorage.setItem("id","-1")
+                localStorage.clear()
                 alert(result.data.error);
             }
 
@@ -51,7 +49,8 @@ export default function Form(props){
     return(
 
         <>
-            { props.auth && <Redirect to="/home" />}
+            { props.auth===true && <Redirect to="/home" />
+            }
             <div className="form-controller">
                 <form className="form"onSubmit={onSubmit}>
                     <h1 className="h3 mb-3 font-weight-normal">{props.type==="login"?"Log In":"Sign Up"}</h1>

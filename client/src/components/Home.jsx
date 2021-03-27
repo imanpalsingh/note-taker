@@ -2,7 +2,7 @@
     This component is reposible for showing all the notes, and componenets to add notes.
 */
 
-import { Redirect, Link } from 'react-router-dom'
+import { Redirect} from 'react-router-dom'
 import React from "react";
 import axios from "axios";
 import Notes from "./Notes";
@@ -13,7 +13,6 @@ import "../styles/media.css"
 
 export default function Home(){
   
-
     /*Using local storage for basic authentication*/
     if(localStorage.getItem("auth")==="false"){
 
@@ -48,12 +47,12 @@ export default function Home(){
             </div>
         </form>
         <div className="note-links">
-            <a href="#Notes" className="nav-link">My notes</a>
+            <a href="#Notes" className="nav-link">Notes</a>
             <a href="#Colaborating" className="nav-link">Colaborations</a>
             <a href="#Reading Now" className="nav-link">Reading</a>
-            <Link to="/">
-                <span className="nav-link" onClick={()=>{localStorage.setItem("Auth","false")}}>Logout</span>
-            </Link>
+            <span className="nav-link" onClick={()=>{alert("(Work in progress) Please visit /login to login again")}}>Logout</span>
+           
+
         </div>
         <div className="NoteContainer">
             <Notes type="owner"heading="Notes" />
