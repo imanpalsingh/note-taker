@@ -18,7 +18,7 @@ server.use(bodyParser.urlencoded({
     extended: true
 }));
 server.use(bodyParser.json());
-server.use(express.static(path.join(__dirname,"client/build")))
+
 
 if(process.env.NODE_ENV === "production"){
     server.use(express.static(path.join(__dirname,"client/build")))
