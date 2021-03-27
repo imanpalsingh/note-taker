@@ -1,4 +1,4 @@
-const pool = require("./Db/dbSetup").connect();
+const pool = require("./dbSetup").connect();
 
 
 //////////////// USERS ////////////////////

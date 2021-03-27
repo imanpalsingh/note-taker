@@ -2,10 +2,11 @@ require('dotenv').config();
 const express = require("express");
 const bodyParser = require('body-parser');
 const server = express();
-const db = require("./db");
+const db = require("./Db/db");
 const cors = require('cors');
 const { response } = require('express');
-
+const path = require("path");
+const PORT = process.env.PORT || 5000;
 
 
 server.use(cors());
@@ -13,6 +14,10 @@ server.use(bodyParser.urlencoded({
     extended: true
 }));
 server.use(bodyParser.json());
+server.use(express.static(path.join(__dirname,"client/build")))
+if(process.env.NODE_ENV === "production"){
+    server.use(express.static(path.join(__dirname,"client/build")))
+}
 
 
 /* For debugging */
@@ -80,6 +85,10 @@ server.post("/auth",(req,res)=>{
 
 })
 
-server.listen(5000,()=>{
-    console.log('Listening at 5000')
+server.get("*", (req,res)=>{
+    res.sendFile(path.join(__dirname, "client/build/index.html"))
+})
+
+server.listen(PORT,()=>{
+    console.log(`Listening at ${PORT}`)
 })
