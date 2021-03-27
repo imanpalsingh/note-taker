@@ -38,7 +38,7 @@ export default function Home(){
 
    return(
        <>
-        <form className="form-signin NoteAdder" onSubmit={()=>onSubmit}>   
+        <form className="form-signin NoteAdder" onSubmit={onSubmit}>   
             <div className="input-group input-group-lg">
                 <div className="input-group-prepend">
                     <button  className="input-group-text" id="inputGroup-sizing-lg">Add</button>

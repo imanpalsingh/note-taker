@@ -35,7 +35,7 @@ export default function Example(props) {
           Share
         </Button>
   
-        <Modal show={show} onHide={()=>handleClose}>
+        <Modal show={show} onHide={handleClose}>
           <Modal.Header closeButton>
             <Modal.Title>Share Note</Modal.Title>
           </Modal.Header>
@@ -59,7 +59,7 @@ export default function Example(props) {
             </div>
         </div>
           <Modal.Footer>
-            <Button variant="secondary" onClick={()=>handleClose}>
+            <Button variant="secondary" onClick={handleClose}>
               Close
             </Button>
             <Button type="Submit" variant="primary">

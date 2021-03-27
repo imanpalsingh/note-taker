@@ -44,7 +44,7 @@ export default function ViewNote(props){
                         (props.type==="owner") &&  
                             <>
                                 <Share id={note.id}/>
-                                <button  id={note.id} onClick={()=>Delete} type="button" className="btn btn-primary">Delete</button>
+                                <button  id={note.id} onClick={Delete} type="button" className="btn btn-primary">Delete</button>
                             </>
                         }
                         {(props.type==="owner" || props.type==="colab") && (<Update id={note.id} />)}
