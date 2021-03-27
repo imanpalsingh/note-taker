@@ -26,7 +26,6 @@ export default function Example(props) {
             })
             .then(result=>{
     
-                console.log(result.data);
             })
             event.preventDefault();
     }

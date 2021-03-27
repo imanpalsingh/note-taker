@@ -14,7 +14,7 @@ export default function Home(){
   
 
     /*Using local storage for basic authentication*/
-    if(localStorage.getItem("Auth")==="false" || localStorage.getItem("Auth")===null){
+    if(localStorage.getItem("auth")==="false"){
 
         return <Redirect to="/login" />
     }
@@ -32,14 +32,6 @@ export default function Home(){
             id: currentID,
         })
         .then(result=>{
-
-            if(result.data.error){
-                console.log(result.data.error);
-            }
-
-            else{
-                console.log(result)
-            }
         })
         event.preventDefault();
     }

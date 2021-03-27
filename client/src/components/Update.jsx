@@ -20,13 +20,6 @@ export default function Example(props) {
             })
             .then(result=>{
 
-                if(result.data.error){
-                    console.log(result.data.error);
-                }
-
-                else{
-                    console.log(result)
-                }
             })
             event.preventDefault();
             handleClose()

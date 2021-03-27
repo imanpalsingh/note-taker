@@ -8,7 +8,7 @@ const getUserById = (request, response) => {
 
   pool.query('SELECT * FROM users WHERE id = $1', [id], (error, results) => {
     if (error) {
-      console.log(error)
+     
       throw error
     }
     response.status(200).json(results.rows.id)
@@ -20,7 +20,7 @@ const checkUser = (request, response) =>{
   pool.query('SELECT * FROM users WHERE username = $1', [request.username], (error, results) => {
     
     if(error){
-      console.log(error)
+      
       throw error
     }
 
@@ -29,7 +29,6 @@ const checkUser = (request, response) =>{
       pool.query('SELECT * FROM users WHERE username=$1 AND password = $2', [request.username,request.password], (error, results) => {
     
         if(error){
-          console.log(error)
           throw error
         }
 
@@ -57,18 +56,15 @@ const createUser = (request, response) => {
   
   pool.query('SELECT * FROM users WHERE username=$1',[request.username],(error, results) => {
     if (error) {
-      console.log(error)
       throw error
     }
 
     if(results.rows.length){
-      console.log(error)
       return response.json({error: "User already exists"})
     }
 
     else{
       pool.query('INSERT INTO users (username, password) VALUES ($1, $2)', [request.username, request.password], (error, results) => {
-        console.log(error)
         if (error) {
           throw error
         }
