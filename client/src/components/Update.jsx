@@ -26,22 +26,22 @@ export default function Example(props) {
     }
     return (
       <>
-        <Button variant="primary" onClick={handleShow}>
+        <Button variant="primary" onClick={()=>handleShow}>
           Update
         </Button>
   
-        <Modal show={show} onHide={handleClose}>
+        <Modal show={show} onHide={()=>handleClose}>
           <Modal.Header closeButton>
             <Modal.Title>Updating a node</Modal.Title>
           </Modal.Header>
-          <form onSubmit={handleShare}>
+          <form onSubmit={()=>handleShare}>
           <div className="form-group" style={{margin:"0.2em"}}>
 
                     <input type="text" name="newNote" placeholder="Enter updated text" className="form-control" id="recipient-name" />
             </div>
         
           <Modal.Footer>
-            <Button variant="secondary" onClick={handleClose}>
+            <Button variant="secondary" onClick={()=>handleClose}>
               Close
             </Button>
             <Button type="Submit" variant="primary">
